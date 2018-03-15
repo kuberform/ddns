@@ -76,6 +76,6 @@ data "aws_iam_policy_document" "dynamic_dns" {
 
     actions = ["route53:ChangeResourceRecordSets"]
 
-    resources = ["arn:aws:route53:::hostedzone/${var.zone_id}"]
+    resources = ["arn:aws:route53:::hostedzone/${var.zone_id_map[data.aws_region.current.name]}"]
   }
 }

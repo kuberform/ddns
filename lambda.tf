@@ -25,7 +25,7 @@ resource "aws_lambda_function" "dynamic_dns" {
 
   environment {
     variables = {
-      ZONE_ID      = "${var.zone_id}"
+      ZONE_ID      = "${var.zone_id_map[data.aws_region.current.name]}"
       DYNAMO_TABLE = "${aws_dynamodb_table.dynamic_dns.id}"
       ZONE_DOMAIN  = "${data.aws_route53_zone.region_zone.name}"
     }
