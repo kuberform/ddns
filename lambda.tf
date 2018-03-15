@@ -1,5 +1,5 @@
 variable "zone_id_map" {
-  type        = "string"
+  type        = "map"
   description = "Map data from module.kuberform.dns_zone.region_zones."
 }
 
