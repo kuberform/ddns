@@ -36,7 +36,7 @@ resource "aws_lambda_function" "dynamic_dns" {
     Owner    = "infrastructure"
     Billing  = "costcenter"
     Role     = "dynamic-dns"
-    Zone     = "${var.zone_id}"
+    Zone     = "${var.zone_id_map[data.aws_region.current.name]}"
     Domain   = "${data.aws_route53_zone.region_zone.name}"
     Provider = "https://github.com/kuberform"
   }
